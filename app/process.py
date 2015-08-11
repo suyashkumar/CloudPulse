@@ -1,6 +1,7 @@
 """
 process.py
-Parses pulse-pressure waveforms relayed from a Spark core over SSE in groups.
+Parses pulse-pressure waveforms relayed from a Spark core over SSE in groups.  
+@author: Suyash Kumar
 """
 import re
 import matplotlib.pyplot as plt

@@ -1,3 +1,11 @@
+"""
+views.py
+The Flask server behind CloudPulse. Assembles and parses incoming data stream from device. Adds information to database.
+On new exam, pushes information to client causing it to request the new exam and display it to the user. Any and all signal processing
+will happen here.
+
+@author: Suyash Kumar
+"""
 from app import app
 from app import connection
 from app import Exam 
@@ -13,10 +21,11 @@ import datetime
 from bson.objectid import ObjectId
 
 
-collection=connection['test4'].users 
-
-
+collection=connection['test4'].users # Define the database collection
 def event_stream(): 
+    """
+    Parses and assembles incoming messages into exams. Adds exams to database, yields a generator over the ids of exams (to be pushed to the client over SSE)
+    """
     messages=SSEClient('https://api.particle.io/v1/devices/events?access_token=6a61e063f79781dddcc39729e77ed76696f23bfc') # Get iterator over SSE messages from the device 
     msgGen=process.parse(messages.__iter__()) # Get generator over FULL assembled packages of data from device
     for item in msgGen: # For each full package of data from the device: 
