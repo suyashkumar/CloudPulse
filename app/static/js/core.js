@@ -1,6 +1,6 @@
-console.log("HI");
-var myApp = angular.module('pulseapp', []);
 
+var myApp = angular.module('pulseapp', []);
+// Set up Controllers:
 myApp.controller("mainController", function($scope,$http){
 	var updateView=function(){
 		$http.get('/api/list').success(
@@ -35,23 +35,11 @@ myApp.controller("mainController", function($scope,$http){
 	eSource=new EventSource("/data_source");
 	eSource.onmessage=function(message){
 		console.log("Message with data")
-		console.log(message.data);
-		//jData=JSON.parse(message.data);
-		//console.log(jData.data)
-
-		/*data_temp=[{"key":"test","values":[]}];
-		for (var i=0;i<250;i++){
-			data_temp[0]["values"].push([i,jData.data[i]])
-		}
-		console.log(data_temp)
-		updateGraph(data_temp)*/
-
-	
+		console.log(message.data); 
 		console.log(message.data.toString())
 		console.log("----");
 		console.log($scope.scanList.id)
-		updateGraphSelectionById(message.data)
-	//	updateGraphSelection($scope.scanList.name.length-1)
+		updateGraphSelectionById(message.data) 
 	}
 
 
