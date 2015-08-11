@@ -6,7 +6,7 @@ import re
 import matplotlib.pyplot as plt
 def parse(msgIter):
     """
-    Compiles a full 250 (N) samples from 5 (M) different messages of 50 samples relayed over SSE push from the 
+    Compiles a full N samples (200) from M (4) different messages of 50 samples relayed over SSE push from the 
     spark core. Yields a generator "over" the fully assembled arrays (of N samples). 
 
     Args:
