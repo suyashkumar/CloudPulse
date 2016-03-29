@@ -34,13 +34,17 @@ require('./config/db')();
 require('./config/routes')(app);
 
 // Set up device handler
-require('./handle-device')('https://api.particle.io/v1/devices/events?access_token=6a61e063f79781dddcc39729e77ed76696f23bfc');
+require('./handle-device')('https://api.particle.io/v1/devices/events?access_token=6a61e063f79781dddcc39729e77ed76696f23bfc', io);
+
+io.on('connection',function(socket){
+	console.log("hello");
+});
 
 exports = module.exports = app;
 if (!module.parent) {
-  var port = process.env.PORT || 8080; // 8080 as default
+  var port = process.env.PORT || 9000; // 8080 as default
   // On Linux make sure you have root to open port 80
-  app.listen(port, function() {
+  server.listen(port, function() {
     console.log('Listening on port ' + port);
   });
 }
