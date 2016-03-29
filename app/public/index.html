@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="CloudPulse">
-<head>
-	<meta charset="utf-8">
-	<title>CloudPulse</title>
-			<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/grid12.css">
-	<link rel=stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+ <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+<!---       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.css">
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+		<link rel="stylesheet" href="css/grid12.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>     
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+       	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
 
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script> 
-
-		  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-		<!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
-		<script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-		<script type="text/javascript" src="js/Chart.min.js"></script>
-		<script type="text/javascript" src="js/controllers.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+	
 
-	</head>
+        <script src="js/controllers.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+        <style>
+         
+            .btn.act, .btn:act {background-color:blue;}
+        </style>
+    </head>
+
 
 	<body id="home" ng-controller="CloudPulseCtrl" style="background-color:#FAFAFA;">
 		<div id="control">
@@ -45,9 +47,10 @@
 	<br>
 	<br>
 	<div class="row"> 
-		<div class="col-md-2">
-			<md-list>
-				<md-subheader class="md-no-sticky">List of Scans</md-subheader>
+		<div class="col-md-3">
+
+			<md-list style="height:400px;overflow:auto;">
+				<md-subheader class="">List of Scans</md-subheader>
 				<md-list-item class="secondary-button-padding" ng-repeat="item in scanList" ng-click="select(item._id)"> 
 					<p>{{item.time}}</p>
 					
@@ -55,27 +58,28 @@
 				</md-list-item>
 			</md-list>
 		</div>
-		<div class="col-md-8"> 
-			<md-card>
-       
-        <md-card-title>
+		<div class="col-md-6"> 
+			<md-card>	
+				<md-card-title>
           <md-card-title-text>
             <span class="md-headline">Main Plot</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content> 
-			<canvas id="canvas" height="450" width="600"></canvas>     
-	
-
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
+		<md-card-content>
+ 					<div id="pulse" class="text-center" style="width:100%;height:320px;">
+						<div class="text-center"><svg></svg></div>
+					</div> 
+		</md-card-content>
+		 <md-card-actions layout="row" layout-align="end center">
           <md-button>Download</md-button>
           <md-button>Delete</md-button>
         </md-card-actions>
-      </md-card>
+		<md-card> 
+
 		
 		</div>
 
+	
 	</div>
 
 	</div>
