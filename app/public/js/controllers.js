@@ -15,6 +15,8 @@ angular.module('CloudPulse',['ngMaterial'])
 					graphValues.push({x:i,y: data.pulse_data[i], area:false});	
 				}
 				updateGraph([{"key":"PulseData","values":graphValues, "area":false}]); 
+				$scope.currData = data;
+				$scope.currSelection = selID;
 			});
 	}
 

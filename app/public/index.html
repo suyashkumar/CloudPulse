@@ -79,8 +79,29 @@
 					</div> 
 		</md-card-content> 
 		</md-card>
+		</div>
+		<div class="col-md-3">
+			<md-content style="height:400px" md-theme="altTheme">
+			<section>
+			<md-subheader class="">Metadata</md-subheader>
+
+			<md-list ng-cloak>
+				<md-list-item class="" ng-click="a()"> 
+					Date: <p align="right">{{currData.time}}</p>	
+				</md-list-item>
+				<md-list-item class="" ng-click="a()"> 
+					ID: <p align="right">{{currData._id}}</p>	
+				</md-list-item>
+				<md-list-item class="" ng-click="a()"> 
+					Pulse: <p align="right">{{currData.pulse}}</p>	
+				</md-list-item>
+			</md-list>
+			</section>
+			</md-content>
+
+		</div>
 		
-		
+		</div>	
 		<div class="row">
 			<div class="col-md-12 text-center">
 			  <md-button>Download</md-button>
