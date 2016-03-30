@@ -48,16 +48,20 @@
 	<br>
 	<div class="row"> 
 		<div class="col-md-3">
+			<md-content style="height:400px" md-theme="altTheme">
+			<section>
+			<md-subheader class="">List of Scans</md-subheader>
 
-			<md-list style="height:400px;overflow:auto;">
-				<md-subheader class="">List of Scans</md-subheader>
-				<md-list-item class="secondary-button-padding" ng-repeat="item in scanList" ng-click="select(item._id)"> 
-					<p>{{item.time}}</p>
-					
-
+			<md-list ng-cloak>
+				<md-list-item class="" ng-repeat="item in scanList" ng-click="select(item._id)"> 
+					<p>{{item.time}}</p>	
 				</md-list-item>
 			</md-list>
+			</section>
+			</md-content>
 		</div>
+
+
 		<div class="col-md-6"> 
 			<md-card>	
 				<md-card-title>
@@ -72,10 +76,17 @@
 		</md-card-content>
 		 <md-card-actions layout="row" layout-align="end center">
           <md-button>Download</md-button>
-          <md-button>Delete</md-button>
+          <md-button class="md-warn">Delete</md-button>
         </md-card-actions>
-		<md-card> 
+		</md-card>
 
+		<div class="row">
+			<div class="col-md-12 text-center">
+			  <md-button>Download</md-button>
+          <md-button class="md-warn">Delete</md-button>
+
+			</div>
+		</div>
 		
 		</div>
 
