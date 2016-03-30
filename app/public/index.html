@@ -22,7 +22,10 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>	
-
+		
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+		
+		
         <script src="js/controllers.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
         <style>
@@ -104,8 +107,8 @@
 		</div>	
 		<div class="row">
 			<div class="col-md-12 text-center">
-			  <md-button>Download</md-button>
-          <md-button class="md-warn">Delete</md-button>
+			  <md-button ng-click="genCSV(currData)">Download</md-button>
+          <md-button class="md-warn" ng-click="delExam(currID)">Delete</md-button>
 
 			</div>
 		</div>

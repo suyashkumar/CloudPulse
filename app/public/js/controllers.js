@@ -16,10 +16,25 @@ angular.module('CloudPulse',['ngMaterial'])
 				}
 				updateGraph([{"key":"PulseData","values":graphValues, "area":false}]); 
 				$scope.currData = data;
-				$scope.currSelection = selID;
+				$scope.currID = selID;
 			});
 	}
-
+	$scope.delExam = function(currID){
+		$http.get('/api/del/'+currID).success(
+			function(resp){
+				updateList($scope, $http, function(data){
+					$scope.select(data[0]._id); // Select first graph once scanList is loaded
+				}); 
+			});
+	} 
+	$scope.genCSV = function(currData){
+		var csvOut="";
+		for (i=0;i<currData.pulse_data.length;i++){
+			csvOut=csvOut+i+","+currData.pulse_data[i]+"\n";	
+		}
+		var blob = new Blob([csvOut], {type:"text/csv;charset=utf-8"});
+		saveAs(blob, currData._id+".csv");
+	}
 
 	var socket = io('http://localhost:9000');
 	socket.on('new', function(data){
