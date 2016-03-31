@@ -6,7 +6,7 @@
 *
 * @author: Suyash Kumar
 */
-$fn=100; // Explicitly sets resolution of arcs
+$fn=110; // Explicitly sets resolution of arcs
 // Parameters: 
 led_dia=5.8; // Diameter of the led/photodiode slot
 led_rad=led_dia/2; // led/photodiode slot
