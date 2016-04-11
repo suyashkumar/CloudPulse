@@ -5,5 +5,7 @@ This project was recenly rebuilt using NodeJS + MongoDB for backend and an Angul
 
 More coming soon! 
 
+http://pulse.suyash.io
+
 ![CloudPulse App Demo](images/demo-2.gif)
 
