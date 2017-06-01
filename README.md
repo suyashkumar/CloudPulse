@@ -1,8 +1,9 @@
-#CloudPulse
+# CloudPulse
+
 My cloud connected pulse plethysmograph project. My goals with this project were to design and develop a straightforward "connected" medical device from the ground up. This continues to be a super fun project involving analog electronics, firmware, frontend, backend, and even 3D printing work (much still is ongoing).
 ![CloudPulse App Demo](images/demo-2.gif)
 
-http://pulse.suyash.io
+Quick demo video: https://youtu.be/qzsb4GcgxSI
 
 ## Setup
 To install this web application on a vanilla debian-flavored linux server:
